@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/2TUGZOYJW8T4T/?_encoding=
 Tags: admin, category
 Requires at least: 3.0 or higher
 Tested up to: 3.9
-Stable tag: 1.0
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,7 @@ Installing this plugin allows you to adjust the behavior of the area below the p
 1. Stop the checkbox from moving
 2. Change checkbox to radio button
 3. Make parent categories unselectable 
+4. Required to Category
 
 
 == Installation ==

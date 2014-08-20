@@ -34,6 +34,15 @@ require_once AAC_PLUGIN_DIR . '/admin/admin-functions.php';
 				</select>
 			</td>
 		</tr>
+		<tr>
+			<th style="width:300px"><?php _e( 'カテゴリーを必須項目にする', $this->textdomain ) ?></th>
+			<td>
+				<select name='requires' id='requires' class='postform'>
+					<option class="level-0" value="0" <?php display_selected( 'requires', 0 ) ?>><?php _e( '停止', $this->textdomain ) ?></option>
+					<option class="level-0" value="1" <?php display_selected( 'requires', 1 ) ?>><?php _e( '有効化', $this->textdomain ) ?></option>
+				</select>
+			</td>
+		</tr>
 	</table>
 
 	<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="<?php _e( '変更を保存', $this->textdomain ) ?>"  /></p></form>

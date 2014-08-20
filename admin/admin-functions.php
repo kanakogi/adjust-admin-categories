@@ -16,6 +16,7 @@ if (
         'checked_ontop' => esc_html( $checked_ontop ),
         'change_radiolist' => esc_html( $change_radiolist ),
         'checklist_no_top' => esc_html( $checklist_no_top ),
+        'requires' => esc_html( $requires ),
     );
     update_option( 'aac_options', $aac_options );
     $this->aac_options = get_option( 'aac_options' );
