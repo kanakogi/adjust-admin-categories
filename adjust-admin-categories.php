@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Adjust Admin Categories
-Plugin URI: https://github.com/kanakogi/adjust-admin-categories
+Plugin URI: http://www.kigurumi.asia/imake/3603/
 Description: Installing this plugin allows you to adjust the behavior of the area below the posts screen category box.
 Author: Nakashima Masahiro
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://www.kigurumi.asia
 Text Domain: aac
 Domain Path: /languages/
