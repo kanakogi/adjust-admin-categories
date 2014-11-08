@@ -1,0 +1,37 @@
+.aac_tab{
+    overflow:hidden;
+}
+.aac_tab li{
+    background:#ddd;
+    border-bottom:1px solid #ddd;
+    padding:5px 25px;
+    float:left;
+    margin-right:5px;
+    cursor:pointer;
+}
+.aac_tab li.select{
+    background:#f1f1f1;
+    border-top:1px solid #ddd;
+    border-right:1px solid #ddd;
+    border-bottom:1px solid #f1f1f1;
+    border-left:1px solid #ddd;
+}
+.aac_contents{
+    clear:left;
+}
+.aac_contents .aac_content{
+
+}
+.hide {
+    display:none;
+}
+h4.taxonomy_title{
+    border-left:5px solid #666;
+    background-color: #ddd;
+    padding: 5px 10px;
+}
+.aac_form{
+    margin-bottom: 50px;
+    padding:10px 20px;
+    border:1px dotted #999;    
+}

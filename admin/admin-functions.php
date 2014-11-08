@@ -11,8 +11,10 @@ if (
     //エラー
     $e = new WP_Error();
 
+    //データをチェック
     extract( $_POST );
-    $aac_options = array(
+    $aac_options = get_option( 'aac_options' );
+    $aac_options[$posttype][$posttaxonomy] = array(
         'checked_ontop' => esc_html( $checked_ontop ),
         'change_radiolist' => esc_html( $change_radiolist ),
         'checklist_no_top' => esc_html( $checklist_no_top ),
@@ -22,7 +24,7 @@ if (
     $this->aac_options = get_option( 'aac_options' );
 
     //成功時
-    $e->add( 'error', __( '保存されました', $this->textdomain ) );
+    $e->add( 'error', $this->_( "Settings saved", '保存されました' ) );
     set_transient( 'post-updated', $e->get_error_messages(), 3 );
 }
 
@@ -54,9 +56,9 @@ function display_messages( $_messages, $_state ) {
 
 
 //selectedを表示
-function display_selected( $_name, $_value ) {
+function display_selected( $_posttype, $_taxonomy, $_name, $_value ) {
     $options = get_option( 'aac_options' );
-    if ( $options[$_name] == $_value ) {
+    if ( $options[$_posttype][$_taxonomy][$_name] == $_value ) {
         echo 'selected="selected"';
     }
 }

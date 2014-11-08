@@ -30,23 +30,14 @@ class Radio_Category_Checklist extends Walker_Category_Checklist{
         if ( empty( $taxonomy ) )
             $taxonomy = 'category';
 
-        if ( $taxonomy == 'category' ){
+        if ( $taxonomy == 'category' )
             $name = 'post_category';
-
-            $class = in_array( $category->term_id, $popular_cats ) ? ' class="popular-category"' : '';
-
-            /** This filter is documented in wp-includes/category-template.php */
-            $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . '<label class="selectit"><input value="' . $category->term_id . '" type="radio" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' . checked( in_array( $category->term_id, $selected_cats ), true, false ) . disabled( empty( $args['disabled'] ), false, false ) . ' /> ' . esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';
-
-        }else{
-            //カテゴリー以外は、普通に表示
+        else
             $name = 'tax_input['.$taxonomy.']';
 
-            $class = in_array( $category->term_id, $popular_cats ) ? ' class="popular-category"' : '';
+        $class = in_array( $category->term_id, $popular_cats ) ? ' class="popular-category"' : '';
 
-            /** This filter is documented in wp-includes/category-template.php */
-            $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . '<label class="selectit"><input value="' . $category->term_id . '" type="checkbox" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' . checked( in_array( $category->term_id, $selected_cats ), true, false ) . disabled( empty( $args['disabled'] ), false, false ) . ' /> ' . esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';
-
-        }
+        /** This filter is documented in wp-includes/category-template.php */
+        $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . '<label class="selectit"><input value="' . $category->term_id . '" type="radio" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' . checked( in_array( $category->term_id, $selected_cats ), true, false ) . disabled( empty( $args['disabled'] ), false, false ) . ' /> ' . esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';
     }
 }

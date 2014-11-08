@@ -7,6 +7,6 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ){
 }
 
 function aac_delete_plugin() {
-			delete_option( 'aac_options' );
+	delete_option( 'aac_options' );
 }
 aac_delete_plugin();
