@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/2TUGZOYJW8T4T/?_encoding=
 Tags: admin, category
 Requires at least: 3.0 or higher
 Tested up to: 4.0
-Stable tag: 1.1.0
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,7 @@ Installing this plugin allows you to adjust the behavior of the area below the p
 
 
 == Changelog ==
-**1.1.0 - November 8, 2014**  
+**1.1.1 - November 8, 2014**  
 For custom taxonomy and custom types.
 
 **1.0.1 - August 18, 2014**  
