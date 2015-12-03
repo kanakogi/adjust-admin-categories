@@ -15,9 +15,10 @@ function display_messages( $_messages, $_state ) {
 
 //selectedを表示
 function display_selected( $_posttype, $_taxonomy, $_name, $_value ) {
-    $options = get_option( 'aac_options' );
-    if ( $options[$_posttype][$_taxonomy][$_name] == $_value ) {
-        echo 'selected="selected"';
+    if($options = get_option( 'aac_options' )){
+        if ( !empty($options[$_posttype][$_taxonomy][$_name]) && $options[$_posttype][$_taxonomy][$_name] == $_value ) {
+            echo 'selected="selected"';
+        }
     }
 }
 

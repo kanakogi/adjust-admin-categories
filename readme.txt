@@ -3,8 +3,8 @@ Contributors: kanakogi
 Donate link: http://www.amazon.co.jp/registry/wishlist/2TUGZOYJW8T4T/?_encoding=UTF8&camp=247&creative=7399&linkCode=ur2&tag=wpccc-22
 Tags: admin, category
 Requires at least: 3.0 or higher
-Tested up to: 4.0
-Stable tag: 1.1.2
+Tested up to: 4.2
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

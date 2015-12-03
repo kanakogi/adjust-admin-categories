@@ -4,12 +4,12 @@ Plugin Name: Adjust Admin Categories
 Plugin URI: http://www.kigurumi.asia/imake/3603/
 Description: Installing this plugin allows you to adjust the behavior of the area below the posts screen categoryand custom taxonomy box.
 Author: Nakashima Masahiro
-Version: 1.1.2
+Version: 1.1.6
 Author URI: http://www.kigurumi.asia
 Text Domain: aac
 Domain Path: /languages/
 */
-define( 'AAC_VERSION', '1.1.2' );
+define( 'AAC_VERSION', '1.1.6' );
 define( 'AAC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'AAC_PLUGIN_NAME', trim( dirname( AAC_PLUGIN_BASENAME ), '/' ) );
 define( 'AAC_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
@@ -155,7 +155,7 @@ class adjust_admin_categories {
      * 管理画面CSS追加
      */
     function head_css () {
-        if($_REQUEST["page"] == "adjust_admin_categories") {
+        if( isset($_REQUEST['page']) && $_REQUEST['page'] == "adjust_admin_categories") {
             wp_enqueue_style( "aac_css", AAC_PLUGIN_URL . '/css/style.css');
         }
     }
@@ -164,7 +164,7 @@ class adjust_admin_categories {
      * 管理画面JS追加
      */
     function head_js () {
-        if($_REQUEST["page"] == "adjust_admin_categories") {
+        if( isset($_REQUEST['page']) && $_REQUEST['page'] == "adjust_admin_categories") {
             wp_enqueue_script( "aac_js", AAC_PLUGIN_URL . '/js/scripts.js', array("jquery"));
         }
     }
@@ -182,7 +182,7 @@ class adjust_admin_categories {
      * 無効化ときに実行
      */
     function deactivationHook() {
-        // delete_option( 'aac_options' );
+        delete_option( 'aac_options' );
     }
 
     /**
