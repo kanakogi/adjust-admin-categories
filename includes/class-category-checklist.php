@@ -1,9 +1,15 @@
 <?php
 require_once ABSPATH . '/wp-admin/includes/template.php';
 class Notop_Category_Checklist extends Walker_Category_Checklist{
+	
+	function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
+		$children = get_categories( array( 'child_of' => $term_id, 'taxonomy' => $taxonomy ) );
+		return ( $children );
+	}
 
     function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
         extract( $args );
+
         if ( empty( $taxonomy ) )
             $taxonomy = 'category';
 
@@ -14,9 +20,9 @@ class Notop_Category_Checklist extends Walker_Category_Checklist{
 
         $class = in_array( $category->term_id, $popular_cats ) ? ' class="popular-category"' : '';
 
-        if ( $category->parent == 0 ) {
+		if( $category->parent == 0 && $this->category_has_children( $category->term_id ) ) {
             $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . esc_html( apply_filters( 'the_category', $category->name ) ) ;
-        }else {
+        } else {
             /** This filter is documented in wp-includes/category-template.php */
             $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" . '<label class="selectit"><input value="' . $category->term_id . '" type="checkbox" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' . checked( in_array( $category->term_id, $selected_cats ), true, false ) . disabled( empty( $args['disabled'] ), false, false ) . ' /> ' . esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';
         }
