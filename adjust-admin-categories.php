@@ -4,12 +4,12 @@ Plugin Name: Adjust Admin Categories
 Plugin URI: http://www.kigurumi.asia/imake/3603/
 Description: Installing this plugin allows you to adjust the behavior of the area below the posts screen categoryand custom taxonomy box.
 Author: Nakashima Masahiro
-Version: 1.1.6
+Version: 1.1.7
 Author URI: http://www.kigurumi.asia
 Text Domain: aac
 Domain Path: /languages/
 */
-define( 'AAC_VERSION', '1.1.6' );
+define( 'AAC_VERSION', '1.1.7' );
 define( 'AAC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'AAC_PLUGIN_NAME', trim( dirname( AAC_PLUGIN_BASENAME ), '/' ) );
 define( 'AAC_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
@@ -68,12 +68,12 @@ class adjust_admin_categories {
      * カテゴリーのチェックボックス
      */
     function wp_terms_checklist_args( $args, $post_id = null ) {
-        
+
         global $post_type;
         //投稿タイプに合わせる
         foreach ($this->aac_options as $key => $value) {
             if ($key == $post_type ){
-                
+
                 foreach ( $value as $key2 => $value2) {
                     if( $key2  == $args['taxonomy'] ){
 
@@ -123,7 +123,7 @@ class adjust_admin_categories {
         }
     }
     </script>
-<?php    
+<?php
                     }
                 }
             }
