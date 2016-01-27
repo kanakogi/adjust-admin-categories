@@ -3,8 +3,8 @@ Contributors: kanakogi, katanyan
 Donate link: http://www.amazon.co.jp/registry/wishlist/2TUGZOYJW8T4T/?_encoding=UTF8&camp=247&creative=7399&linkCode=ur2&tag=wpccc-22
 Tags: admin, category
 Requires at least: 3.0 or higher
-Tested up to: 4.2
-Stable tag: 1.1.7
+Tested up to: 4.4.1
+Stable tag: 1.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,10 @@ Installing this plugin allows you to adjust the behavior of the area below the p
 
 
 == Changelog ==
+**1.1.8 - 3 December 2015**
+Merged "quick edit problem"
+Thanks! katanyan.
+
 **1.1.7 - 3 December 2015**
 Merged "If parent category has no children, not make it unselectable."
 Thanks! saillmone.
