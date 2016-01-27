@@ -1,5 +1,5 @@
 === Adjust Admin Categories ===
-Contributors: kanakogi
+Contributors: kanakogi, katanyan
 Donate link: http://www.amazon.co.jp/registry/wishlist/2TUGZOYJW8T4T/?_encoding=UTF8&camp=247&creative=7399&linkCode=ur2&tag=wpccc-22
 Tags: admin, category
 Requires at least: 3.0 or higher

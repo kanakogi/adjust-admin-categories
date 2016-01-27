@@ -48,6 +48,7 @@ class adjust_admin_categories {
         // css, js
         add_action('admin_print_styles', array( $this, 'head_css'));
         add_action('admin_print_scripts', array( $this, "head_js"));
+        add_action('admin_enqueue_scripts', array( $this, "enqueue_js"));
 
         // プラグインが有効・無効化されたとき
         register_activation_hook( __FILE__, array( $this, 'activationHook' ) );
@@ -166,6 +167,15 @@ class adjust_admin_categories {
     function head_js () {
         if( isset($_REQUEST['page']) && $_REQUEST['page'] == "adjust_admin_categories") {
             wp_enqueue_script( "aac_js", AAC_PLUGIN_URL . '/js/scripts.js', array("jquery"));
+        }
+    }
+
+    /*
+     * 投稿画面JS追加
+     */
+    function enqueue_js( $hook_suffix ) {
+        if( $hook_suffix === 'edit.php' ) {
+            wp_enqueue_script( 'aac_inline_edit', AAC_PLUGIN_URL . '/js/aac-inline-edit.js', array( 'jquery' ), null, true );
         }
     }
 
