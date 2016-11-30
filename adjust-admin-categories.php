@@ -4,12 +4,12 @@ Plugin Name: Adjust Admin Categories
 Plugin URI: http://www.kigurumi.asia/imake/3603/
 Description: Installing this plugin allows you to adjust the behavior of the area below the posts screen categoryand custom taxonomy box.
 Author: Nakashima Masahiro
-Version: 1.1.9
+Version: 1.2.0
 Author URI: http://www.kigurumi.asia
 Text Domain: aac
 Domain Path: /languages/
 */
-define( 'AAC_VERSION', '1.1.9' );
+define( 'AAC_VERSION', '1.2.0' );
 define( 'AAC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'AAC_PLUGIN_NAME', trim( dirname( AAC_PLUGIN_BASENAME ), '/' ) );
 define( 'AAC_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
@@ -116,14 +116,19 @@ class adjust_admin_categories {
                         $term = get_taxonomy( $key2 );
 ?>
     <script type="text/javascript">
-    jQuery("#post").attr("onsubmit", "return check_<?php echo $key2; ?>();");
-    function check_<?php echo $key2; ?>(){
-        var total_check_num = jQuery("#<?php echo $key2; ?>checklist input:checked").length;
-        if(total_check_num == 0){
+    (function($){
+    $("#post").on("submit", function(event){
+        if (!check_<?php echo $key2; ?>()) {
             alert("<?php echo $term->labels->name; ?><?php $this->e( ' is required', 'は必須項目です' ) ?>");
-            return false;
+            event.preventDefault();
+            event.stopPropagation();
         }
+    });
+    function check_<?php echo $key2; ?>(){
+        var total_check_num = $("#<?php echo $key2; ?>checklist input:checked").length;
+        return total_check_num == 0 ? false : true;
     }
+    })(jQuery);
     </script>
 <?php
                     }
