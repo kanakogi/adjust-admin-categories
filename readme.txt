@@ -4,7 +4,7 @@ Donate link: http://www.amazon.co.jp/registry/wishlist/2TUGZOYJW8T4T/?_encoding=
 Tags: admin, category
 Requires at least: 3.0 or higher
 Tested up to: 5.4.0
-Stable tag: 2.2.2
+Stable tag: 2.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,7 +33,7 @@ Installing this plugin allows you to adjust the behavior of the area below the p
 
 == Changelog ==
 
-**2.2.1 - 15 April 2020**
+**2.2.3 - 15 April 2020**
 Non selectable parent categories are bold and no longer wrapped in a clickable label element
 
 **2.2.0 - 29 June 2018**
