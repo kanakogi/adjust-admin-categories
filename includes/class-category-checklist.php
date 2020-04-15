@@ -56,14 +56,14 @@ class AAC_Category_Checklist extends Walker_Category_Checklist{
             if($this->checklist_no_top == true){
                 if( $category->parent == 0 || $this->category_has_children( $category->term_id, $category->taxonomy ) ) {
                     $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" .
-                        '<label class="selectit">' . esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';
+                            '<b>' . esc_html( apply_filters( 'the_category', $category->name ) ) . '</b>';
                 }else{
                     /** This filter is documented in wp-includes/category-template.php */
                     $output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" .
                         '<label class="selectit"><input value="' . $category->term_id . '" type="'.$input_type.'" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' .
                         checked( in_array( $category->term_id, $args['selected_cats'] ), true, false ) .
                         disabled( empty( $args['disabled'] ), false, false ) . ' /> ' .
-                        esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';                    
+                        esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';
                 }
             }else{
                 /** This filter is documented in wp-includes/category-template.php */
@@ -71,7 +71,7 @@ class AAC_Category_Checklist extends Walker_Category_Checklist{
                     '<label class="selectit"><input value="' . $category->term_id . '" type="'.$input_type.'" name="'.$name.'[]" id="in-'.$taxonomy.'-' . $category->term_id . '"' .
                     checked( in_array( $category->term_id, $args['selected_cats'] ), true, false ) .
                     disabled( empty( $args['disabled'] ), false, false ) . ' /> ' .
-                    esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>'; 
+                    esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';
             }
         }
     }

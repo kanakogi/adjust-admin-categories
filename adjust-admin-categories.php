@@ -4,12 +4,12 @@ Plugin Name: Adjust Admin Categories
 Plugin URI: http://www.kigurumi.asia/imake/3603/
 Description: Installing this plugin allows you to adjust the behavior of the area below the posts screen categoryand custom taxonomy box.
 Author: Nakashima Masahiro
-Version: 2.2.0
+Version: 2.2.2
 Author URI: https://www.kigurumi.asia
 Text Domain: aac
 Domain Path: /languages/
 */
-define( 'AAC_VERSION', '2.2.0' );
+define( 'AAC_VERSION', '2.2.2' );
 define( 'AAC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'AAC_PLUGIN_NAME', trim( dirname( AAC_PLUGIN_BASENAME ), '/' ) );
 define( 'AAC_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
