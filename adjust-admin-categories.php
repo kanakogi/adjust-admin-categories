@@ -28,7 +28,7 @@ class adjust_admin_categories {
                     'checked_ontop' => 0,
                     'change_radiolist' => 0,
                     'checklist_no_top' => 0,
-                    'requires' => 0,
+                    'required' => 0,
                 )
             )
         );
@@ -94,7 +94,15 @@ class adjust_admin_categories {
                             $args['checked_ontop'] = false;
                             $checklist_no_top = true;
                         }
-                        $Checklist = new AAC_Category_Checklist($change_radiolist, $checklist_no_top);
+
+                        //required
+                        $required = false;
+                        if ( $this->aac_options[$key][$key2]['required'] == true ) {
+                            $args['required'] = false;
+                            $required = true;
+                        }
+
+                        $Checklist = new AAC_Category_Checklist($change_radiolist, $checklist_no_top, $required);
                         $args['walker'] = $Checklist;
 
                         return $args;
@@ -115,7 +123,7 @@ class adjust_admin_categories {
         foreach ($this->aac_options as $key => $value) {
             if( $key == $post_type ){
                 foreach ( $value as $key2 => $value2) {
-                    if( $this->aac_options[$key][$key2]['requires'] ){
+                    if( $this->aac_options[$key][$key2]['required'] ){
                         $term = get_taxonomy( $key2 );
                         $func_key2 = str_replace('-', '_', $key2);
 ?>
