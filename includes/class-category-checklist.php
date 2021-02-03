@@ -30,7 +30,14 @@ class AAC_Category_Checklist extends Walker_Category_Checklist{
         }
 
         $args['popular_cats'] = empty( $args['popular_cats'] ) ? array() : $args['popular_cats'];
-        $class = in_array( $category->term_id, $args['popular_cats'] ) ? ' class="popular-category"' : '';
+
+        $class_names = in_array( $category->term_id, $args['popular_cats'] ) ? 'popular-category' : '';
+        $class_names = apply_filters( 'aac_category_wrapper_class', $class_names, $category );
+
+        $class = '';
+        if(!empty($class_names)){
+          $class = ' class="'.$class_names.'"';
+        }
 
         $args['selected_cats'] = empty( $args['selected_cats'] ) ? array() : $args['selected_cats'];
 
@@ -59,7 +66,8 @@ class AAC_Category_Checklist extends Walker_Category_Checklist{
             if($this->change_radiolist == true){
                 $input_type = 'radio';
             }
-            $input_class= 'rwmb-'.$input_type;
+            $input_class = 'rwmb-'.$input_type;
+            $input_class = apply_filters( 'aac_category_input_class', $input_class, $category );
 
             if($this->checklist_no_top == true){
                 if( $category->parent == 0 || $this->category_has_children( $category->term_id, $category->taxonomy ) ) {
