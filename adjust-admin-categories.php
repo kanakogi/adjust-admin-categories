@@ -28,7 +28,7 @@ class adjust_admin_categories {
                     'checked_ontop' => 0,
                     'change_radiolist' => 0,
                     'checklist_no_top' => 0,
-                    'requires' => 0,
+                    'required' => 0,
                 )
             )
         );
@@ -94,7 +94,15 @@ class adjust_admin_categories {
                             $args['checked_ontop'] = false;
                             $checklist_no_top = true;
                         }
-                        $Checklist = new AAC_Category_Checklist($change_radiolist, $checklist_no_top);
+
+                        //required
+                        $required = false;
+                        if ( $this->aac_options[$key][$key2]['required'] == true ) {
+                            $args['required'] = false;
+                            $required = true;
+                        }
+
+                        $Checklist = new AAC_Category_Checklist($change_radiolist, $checklist_no_top, $required);
                         $args['walker'] = $Checklist;
 
                         return $args;
@@ -115,15 +123,18 @@ class adjust_admin_categories {
         foreach ($this->aac_options as $key => $value) {
             if( $key == $post_type ){
                 foreach ( $value as $key2 => $value2) {
-                    if( $this->aac_options[$key][$key2]['requires'] ){
+                    if( $this->aac_options[$key][$key2]['required'] ){
                         $term = get_taxonomy( $key2 );
                         $func_key2 = str_replace('-', '_', $key2);
 ?>
     <script type="text/javascript">
     (function($){
+    $('#<?php echo $key2; ?>div > h2.hndle').append(' <span class="rwmb-required">*</span>');
     $("#post").on("submit", function(event){
-        if (!check_<?php echo $func_key2; ?>()) {
-            alert("<?php echo $term->labels->name; ?><?php $this->e( ' is required', 'は必須項目です' ) ?>");
+        $('#<?php echo $key2; ?>-error').remove();
+        if (!check_<?php echo $func_key2; ?>() && $("input[type=submit][clicked=true]").attr('id') != 'save-post' ) {
+            //$('#<?php echo $key2; ?>div').css('border', '1px dotted red');
+            $('#taxonomy-<?php echo $key2; ?>').before( '<p id="<?php echo $key2; ?>-error" style="color: #dc3232; margin: 2px 0 5px;"><?php echo __('An','は必須項目です').' '.$term->labels->singular_name; ?><?php $this->e( ' is required', 'は必須項目です' ) ?></p>' );
             event.preventDefault();
             event.stopPropagation();
         }

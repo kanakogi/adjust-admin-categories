@@ -1,5 +1,5 @@
-<?php 
-require_once AAC_PLUGIN_DIR . '/admin/admin-functions.php';	 
+<?php
+require_once AAC_PLUGIN_DIR . '/admin/admin-functions.php';
 
 /**
  * データを保存
@@ -20,7 +20,7 @@ if (
         'checked_ontop' => esc_html( $checked_ontop ),
         'change_radiolist' => esc_html( $change_radiolist ),
         'checklist_no_top' => esc_html( $checklist_no_top ),
-        'requires' => esc_html( $requires ),
+        'required' => esc_html( $required ),
     );
     update_option( 'aac_options', $aac_options );
     $this->aac_options = get_option( 'aac_options' );
@@ -56,7 +56,7 @@ unset(
 ?>
 
 <h2><?php $this->e( 'Adjust Admin Categories Settings', 'Adjust Admin Categories 設定' ) ?></h2>
-<?php 
+<?php
 /**
  * エラーメッセージ
  */
@@ -72,23 +72,23 @@ if ( $messages = get_transient( 'post-updated' ) ) {
 <p><?php $this->e( "The posts screen category box can be adjusted.", '投稿画面のカテゴリーボックスの調整ができます。' ) ?></p>
 
 <ul class="aac_tab">
-<?php foreach($post_types as $post_type) : ?>	
+<?php foreach($post_types as $post_type) : ?>
     <li class="aac_tab-<?php echo $post_type->name;?>"><?php echo $post_type->labels->name;?></li>
 <?php endforeach; ?>
 </ul>
 <div class="aac_contents">
-<?php foreach($post_types as $post_type) : ?>	
+<?php foreach($post_types as $post_type) : ?>
 <div class="aac_content">
 	<h3><?php echo $post_type->labels->name;?></h3>
 
-<?php 
+<?php
 $flg_taxonomy = 0;
-foreach($post_taxonomies as $post_taxonomy) : 
+foreach($post_taxonomies as $post_taxonomy) :
 	//オブジェクトタイプがタクソノミーを使用できるか調べる
 	if( !is_object_in_taxonomy( $post_type->name, $post_taxonomy->name ) ){
 		continue;
 	}
-?>		
+?>
 <form method='post' action='' class="aac_form">
 	<h4 class="taxonomy_title"><?php echo $post_taxonomy->labels->name;?></h4>
 	<?php wp_nonce_field( 'create_post' ); ?>
@@ -123,21 +123,21 @@ foreach($post_taxonomies as $post_taxonomy) :
 		<tr>
 			<th style="width:300px"><?php $this->e( "Required", '必須項目にする' ) ?></th>
 			<td>
-				<select name='requires' id='requires' class='postform'>
-					<option class="level-0" value="0" <?php display_selected( $post_type->name, $post_taxonomy->name, 'requires', 0 ) ?>><?php $this->e( "Deactivate", '停止' ) ?></option>
-					<option class="level-0" value="1" <?php display_selected( $post_type->name, $post_taxonomy->name, 'requires', 1 ) ?>><?php $this->e( "Activate", '有効化' ) ?></option>
+				<select name='required' id='required' class='postform'>
+					<option class="level-0" value="0" <?php display_selected( $post_type->name, $post_taxonomy->name, 'required', 0 ) ?>><?php $this->e( "Deactivate", '停止' ) ?></option>
+					<option class="level-0" value="1" <?php display_selected( $post_type->name, $post_taxonomy->name, 'required', 1 ) ?>><?php $this->e( "Activate", '有効化' ) ?></option>
 				</select>
 			</td>
 		</tr>
 	</table>
-	
+
 	<input type="hidden" name="posttype" value="<?php echo $post_type->name;?>">
 	<input type="hidden" name="posttaxonomy" value="<?php echo $post_taxonomy->name;?>">
 	<p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="<?php $this->e( 'Save Changes', '変更を保存' ) ?>"  /></p></form>
 </form>
-<?php 
+<?php
 $flg_taxonomy ++;
-endforeach; 
+endforeach;
 
 //タクソノミーがなければメニューを削除
 if($flg_taxonomy == 0){
@@ -145,7 +145,7 @@ if($flg_taxonomy == 0){
 <script>
 jQuery('.aac_tab-<?php echo $post_type->name;?>').hide();
 </script>
-<?php 
+<?php
 }
 ?>
 
