@@ -3,8 +3,8 @@ Contributors: kanakogi, saillmone, katanyan, ishiiyoshinori, nashiko, twinpictur
 Donate link: http://www.amazon.co.jp/registry/wishlist/2TUGZOYJW8T4T/?_encoding=UTF8&camp=247&creative=7399&linkCode=ur2&tag=wpccc-22
 Tags: admin, category
 Requires at least: 3.0 or higher
-Tested up to: 5.4.0
-Stable tag: 2.2.3
+Tested up to: 5.6.1
+Stable tag: 2.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
